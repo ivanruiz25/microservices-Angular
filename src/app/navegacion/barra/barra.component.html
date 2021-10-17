@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="onMenuToggleDispatch()">
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span>Mi App</span>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="10px" class="navegacion">
+          <li><a *ngIf="estadoUsuario" routerLink="/">Home</a></li>
+          <li><a *ngIf="!estadoUsuario" routerLink="/login">Acceder</a></li>
+          <li><a *ngIf="!estadoUsuario" routerLink="/registrar">Registro</a></li>
+          <li><a *ngIf="estadoUsuario" (click)="logout()" routerLink="/">Salir</a></li>
+      </ul>
+  </div>
+</mat-toolbar>

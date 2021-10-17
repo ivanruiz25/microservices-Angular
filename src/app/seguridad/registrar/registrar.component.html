@@ -1,0 +1,38 @@
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="registrarUsuario(f)"
+  fxLayoutGap="10px">
+
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput ngModel name="nombre" required>
+      <mat-error>El nombre es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Apellidos</mat-label>
+      <input type="text" matInput ngModel name="apellido" required>
+      <mat-error>Los apellidos son obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre de usuario</mat-label>
+      <input type="text" matInput ngModel name="usuario" required>
+      <mat-error>El nombre de usuario es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo electrónico</mat-label>
+      <input type="email" matInput ngModel name="email" email required #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">El correo electrónico es obligatorio</mat-error>
+      <mat-error *ngIf="emailInput.hasError('email')">El tipo es invalido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="La contraseña debe tener mínimo 9 caracteres">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput ngModel name="password" required minlength="9">
+      <mat-error>La contraseña debe tener mínimo 9 caracteres</mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Guardar</button>
+  </form>
+</section>
